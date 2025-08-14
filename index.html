@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes Templates</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <div id="templateSelector">
+    <h1>Select Notes Template</h1>
+    <div class="template-list">
+      <button class="template-btn" data-template="leadershipEscalation">📄 Leadership Escalation</button>
+      <button class="template-btn" data-template="lblModification">📝 LBL Modification</button>
+      <button class="template-btn" data-template="obcxCallback">📞 OBCX Callback Request</button>
+      <button class="template-btn" data-template="refundRequest">💰 Refund Request</button>
+    </div>
+  </div>
+
+  <!-- Leadership Escalation Template -->
+  <div id="leadershipEscalation" class="template hidden">
+    <h1>Leadership Escalation</h1>
+    <form id="issueForm">
+      <fieldset>
+        <legend>Account details</legend>
+        <label>Name: <input type="text" name="name"></label>
+        <label>Phone number: <input type="text" name="phone"></label>
+        <label>Domain name or preview link: <input type="text" name="domain"></label>
+        <label>I-Case: <input type="text" name="icase"></label>
+      </fieldset>
+      <fieldset>
+        <legend>Issue summary</legend>
+        <textarea name="issueSummary" rows="3" placeholder="Describe the issue..."></textarea>
+      </fieldset>
+      <fieldset>
+        <legend>Expectations set with the client</legend>
+        <label for="expectedResolution">Expected Resolution:</label>
+        <textarea id="expectedResolution" name="expectedResolution" rows="2" placeholder="Expected resolution..."></textarea>
+        <label for="providedSolutions">Alt Solutions Provided:</label>
+        <textarea id="providedSolutions" name="providedSolutions" rows="2" placeholder="Expectations/alt-solutions provided..."></textarea>
+      </fieldset>
+      <fieldset>
+        <legend>Next steps</legend>
+        <input type="text" name="nextSteps" placeholder="Call out, Email, or Expedite">
+      </fieldset>
+    </form>
+    <div class="preview-container">
+      <h2>Preview</h2>
+      <pre id="preview"></pre>
+      <div class="buttons">
+        <button type="button" id="copyBtn" class="btn btn-copy">📋 Copy to Clipboard</button>
+        <button type="reset" id="resetBtn" class="btn btn-reset">♻ Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LBL Modification Template -->
+  <div id="lblModification" class="template hidden">
+    <h1>LBL Modification</h1>
+    <form id="lblForm">
+      <h2 style="color:red; text-align:center;">Subject should be: <br>CPROD: xxxxxxxx | LBL Request </h2>
+      <label>CPROD: <input type="text" name="cprod"></label>
+      <label>Body: <textarea name="body" rows="2"></textarea></label>
+      <label>Business name: <input type="text" name="businessName"></label>
+      <div id="changeRequests"></div>
+      <button type="button" id="addChangeBtn" class="btn btn-add">➕ Add Change Request</button>
+    </form>
+    <div class="preview-container">
+      <h2>Preview</h2>
+      <pre id="lblPreview"></pre>
+      <div class="buttons">
+        <button type="button" id="lblCopyBtn" class="btn btn-copy">📋 Copy to Clipboard</button>
+        <button type="reset" id="lblResetBtn" class="btn btn-reset">♻ Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- OBCX Callback Request Template -->
+  <div id="obcxCallback" class="template hidden">
+    <h1>OBCX Callback Request</h1>
+    <form id="obcxForm">
+      <label>Customer name: <input type="text" name="customerName"></label>
+      <label>Customer contact number: <input type="text" name="customerContact"></label>
+      <label>OBCX/OB-case/Pega case number: <input type="text" name="caseNumber"></label>
+      <label>OBCX agent requested: <input type="text" name="agentRequested"></label>
+      <label>2-hour callback time frame: <input type="text" name="callbackTime"></label>
+      <label>Brief Notes:</label>
+      <textarea name="briefNotes" rows="3" placeholder="Summary of discussion or concern"></textarea>
+      <label>Thank you, <input type="text" name="yourName" placeholder="Your Name"></label>
+    </form>
+    <div class="preview-container">
+      <h2>Preview</h2>
+      <pre id="obcxPreview"></pre>
+      <div class="buttons">
+        <button type="button" id="obcxCopyBtn" class="btn btn-copy">📋 Copy to Clipboard</button>
+        <button type="reset" id="obcxResetBtn" class="btn btn-reset">♻ Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Refund Request Template -->
+  <div id="refundRequest" class="template hidden">
+    <h1>Refund Request</h1>
+    <form id="refundForm">
+      <label>URL: <input type="text" name="url"></label>
+      <label>Customer Name: <input type="text" name="customerName"></label>
+      <label>Reason for refund request:</label>
+      <textarea name="refundReason" rows="4" placeholder="Include dates, limitations, expectations, etc."></textarea>
+      <label>Products: <input type="text" name="products"></label>
+      <label>Open work-cases: <input type="text" name="openCases"></label>
+    </form>
+    <div class="preview-container">
+      <h2>Preview</h2>
+      <pre id="refundPreview"></pre>
+      <div class="buttons">
+        <button type="button" id="refundCopyBtn" class="btn btn-copy">📋 Copy to Clipboard</button>
+        <button type="reset" id="refundResetBtn" class="btn btn-reset">♻ Reset</button>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<script src="script.js"></script>
+</body>
+</html>
