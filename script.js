@@ -1,12 +1,31 @@
-document.querySelectorAll('.template-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.getElementById('templateSelector').classList.add('hidden');
-    const templateId = btn.getAttribute('data-template');
-    document.getElementById(templateId).classList.remove('hidden');
-  });
-});
+const templateDropdown = document.getElementById('templateDropdown');
+const templateSelectorEl = document.getElementById('templateSelector');
+const TEMPLATE_IDS = ['leadershipEscalation','lblModification','obcxCallback','refundRequest'];
 
-/* ----------- Issue Form ----------- */
+function hideAllTemplates() {
+  TEMPLATE_IDS.forEach(id => document.getElementById(id).classList.add('hidden'));
+}
+
+function openTemplateById(id) {
+  hideAllTemplates();
+  templateSelectorEl.classList.add('hidden');
+  document.getElementById(id).classList.remove('hidden');
+}
+
+function returnToSelector() {
+  hideAllTemplates();
+  templateSelectorEl.classList.remove('hidden');
+  if (templateDropdown) templateDropdown.value = '';
+}
+
+if (templateDropdown) {
+  templateDropdown.addEventListener('change', e => {
+    const id = e.target.value;
+    if (id) openTemplateById(id);
+  });
+}
+
+/* Issue Form */
 const form = document.getElementById('issueForm');
 const preview = document.getElementById('preview');
 const copyBtn = document.getElementById('copyBtn');
@@ -46,13 +65,12 @@ copyBtn.addEventListener('click', () => {
 resetBtn.addEventListener('click', () => {
   form.reset();
   preview.textContent = "";
-  form.closest('.template').classList.add('hidden');
-  document.getElementById('templateSelector').classList.remove('hidden');
+  returnToSelector();
 });
 
 updatePreview();
 
-/* ----------- LBL Change Request Form ----------- */
+/* LBL Change Request */
 const lblForm = document.getElementById('lblForm');
 const lblPreview = document.getElementById('lblPreview');
 const lblCopyBtn = document.getElementById('lblCopyBtn');
@@ -119,15 +137,14 @@ lblResetBtn.addEventListener('click', () => {
   changeRequestsDiv.innerHTML = "";
   changeRequestsDiv.appendChild(createChangeField(1));
   changeCount = 1;
-  lblForm.closest('.template').classList.add('hidden');
-  document.getElementById('templateSelector').classList.remove('hidden');
+  returnToSelector();
 });
 
 changeRequestsDiv.innerHTML = "";
 changeRequestsDiv.appendChild(createChangeField(1));
 updateLblPreview();
 
-/* ----------- OBCX Callback Request ----------- */
+/* OBCX Callback Request */
 const obcxForm = document.getElementById('obcxForm');
 const obcxPreview = document.getElementById('obcxPreview');
 const obcxCopyBtn = document.getElementById('obcxCopyBtn');
@@ -137,9 +154,9 @@ function updateOBCXPreview() {
   const formData = new FormData(obcxForm);
   const text = `
 Customer name: ${formData.get('customerName') || ""}
-Customer contact number: ${formData.get('customerNumber') || ""}
+Customer contact number: ${formData.get('customerContact') || ""}
 OBCX/OB-case/Pega case number: ${formData.get('caseNumber') || ""}
-OBCX agent requested: ${formData.get('agentName') || ""}
+OBCX agent requested: ${formData.get('agentRequested') || ""}
 2-hour callback time frame: ${formData.get('callbackTime') || ""}
 Brief Notes: ${formData.get('briefNotes') || ""}
 
@@ -160,12 +177,12 @@ obcxCopyBtn.addEventListener('click', () => {
 obcxResetBtn.addEventListener('click', () => {
   obcxForm.reset();
   obcxPreview.textContent = "";
-  obcxForm.closest('.template').classList.add('hidden');
-  document.getElementById('templateSelector').classList.remove('hidden');
+  returnToSelector();
 });
 
 updateOBCXPreview();
-/* ----------- Refund Request ----------- */
+
+/* Refund Request */
 const refundForm = document.getElementById('refundForm');
 const refundPreview = document.getElementById('refundPreview');
 const refundCopyBtn = document.getElementById('refundCopyBtn');
@@ -196,8 +213,25 @@ refundCopyBtn.addEventListener('click', () => {
 refundResetBtn.addEventListener('click', () => {
   refundForm.reset();
   refundPreview.textContent = "";
-  refundForm.closest('.template').classList.add('hidden');
-  document.getElementById('templateSelector').classList.remove('hidden');
+  returnToSelector();
 });
 
 updateRefundPreview();
+function goBackToSelector() {
+  document.querySelectorAll('.template-form').forEach(form => form.classList.add('hidden'));
+  document.getElementById('templateSelector').classList.remove('hidden');
+  document.getElementById('templateDropdown').value = ""; // Reset dropdown selection
+}
+function goBackToSelector() {
+  // Hide any visible templates
+  document.querySelectorAll('.template').forEach(template => {
+    template.classList.add('hidden');
+  });
+
+  // Show the template selector
+  document.getElementById('templateSelector').classList.remove('hidden');
+
+  // Reset dropdown selection
+  const dropdown = document.getElementById('templateDropdown');
+  if (dropdown) dropdown.value = "";
+}
