@@ -159,9 +159,7 @@ OBCX/OB-case/Pega case number: ${formData.get('caseNumber') || ""}
 OBCX agent requested: ${formData.get('agentRequested') || ""}
 2-hour callback time frame: ${formData.get('callbackTime') || ""}
 Brief Notes: ${formData.get('briefNotes') || ""}
-
-Thank you, ${formData.get('yourName') || ""}
-  `.trim();
+`.trim();
   obcxPreview.textContent = text;
 }
 
