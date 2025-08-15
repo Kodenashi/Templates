@@ -65,7 +65,7 @@ copyBtn.addEventListener('click', () => {
 resetBtn.addEventListener('click', () => {
   form.reset();
   preview.textContent = "";
-  returnToSelector();
+  updatePreview();
 });
 
 updatePreview();
@@ -137,7 +137,7 @@ lblResetBtn.addEventListener('click', () => {
   changeRequestsDiv.innerHTML = "";
   changeRequestsDiv.appendChild(createChangeField(1));
   changeCount = 1;
-  returnToSelector();
+  updateLblPreview();
 });
 
 changeRequestsDiv.innerHTML = "";
@@ -177,7 +177,7 @@ obcxCopyBtn.addEventListener('click', () => {
 obcxResetBtn.addEventListener('click', () => {
   obcxForm.reset();
   obcxPreview.textContent = "";
-  returnToSelector();
+  updateOBCXPreview();
 });
 
 updateOBCXPreview();
@@ -213,25 +213,17 @@ refundCopyBtn.addEventListener('click', () => {
 refundResetBtn.addEventListener('click', () => {
   refundForm.reset();
   refundPreview.textContent = "";
-  returnToSelector();
+  updateRefundPreview();
 });
 
 updateRefundPreview();
+
+/* Back Button Function */
 function goBackToSelector() {
-  document.querySelectorAll('.template-form').forEach(form => form.classList.add('hidden'));
-  document.getElementById('templateSelector').classList.remove('hidden');
-  document.getElementById('templateDropdown').value = ""; // Reset dropdown selection
-}
-function goBackToSelector() {
-  // Hide any visible templates
   document.querySelectorAll('.template').forEach(template => {
     template.classList.add('hidden');
   });
-
-  // Show the template selector
   document.getElementById('templateSelector').classList.remove('hidden');
-
-  // Reset dropdown selection
   const dropdown = document.getElementById('templateDropdown');
   if (dropdown) dropdown.value = "";
 }
