@@ -25,7 +25,6 @@ if (templateDropdown) {
   });
 }
 
-/* Issue Form */
 const form = document.getElementById('issueForm');
 const preview = document.getElementById('preview');
 const copyBtn = document.getElementById('copyBtn');
@@ -70,7 +69,6 @@ resetBtn.addEventListener('click', () => {
 
 updatePreview();
 
-/* LBL Change Request */
 const lblForm = document.getElementById('lblForm');
 const lblPreview = document.getElementById('lblPreview');
 const lblCopyBtn = document.getElementById('lblCopyBtn');
@@ -144,7 +142,6 @@ changeRequestsDiv.innerHTML = "";
 changeRequestsDiv.appendChild(createChangeField(1));
 updateLblPreview();
 
-/* OBCX Callback Request */
 const obcxForm = document.getElementById('obcxForm');
 const obcxPreview = document.getElementById('obcxPreview');
 const obcxCopyBtn = document.getElementById('obcxCopyBtn');
@@ -180,7 +177,6 @@ obcxResetBtn.addEventListener('click', () => {
 
 updateOBCXPreview();
 
-/* Refund Request */
 const refundForm = document.getElementById('refundForm');
 const refundPreview = document.getElementById('refundPreview');
 const refundCopyBtn = document.getElementById('refundCopyBtn');
@@ -216,7 +212,6 @@ refundResetBtn.addEventListener('click', () => {
 
 updateRefundPreview();
 
-/* Back Button Function */
 function goBackToSelector() {
   document.querySelectorAll('.template').forEach(template => {
     template.classList.add('hidden');
