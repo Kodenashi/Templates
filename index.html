@@ -11,30 +11,30 @@
 
 <body>
     <div class="container">
-<div class="template-selector-container" id="templateSelector">
-  
-  <div class="logo-slot">
-    <img src="https://kodenashi.github.io/Templates/assets/PPCCLOGO.png" alt="Logo">
-  </div>
+        <div class="template-selector-container" id="templateSelector">
 
-  <h1 class="selector-title">PPCC Templates</h1>
-  <p class="selector-subtitle">Select a template from the list below</p>
+            <div class="logo-slot">
+                <img src="https://kodenashi.github.io/Templates/assets/PPCCLOGO2.png" alt="Logo">
+            </div>
 
-  <div class="selector-card">
-    <select id="templateDropdown" class="template-dropdown">
-      <option value="">-- Select a Template --</option>
-      <option value="leadershipEscalation">Leadership Escalation</option>
-      <option value="lblModification">LBL Modification</option>
-      <option value="obcxCallback">OBCX Callback Request</option>
-      <option value="refundRequest">Refund Request</option>
-    </select>
-  </div>
-</div>
+            <h1 class="selector-title">PPCC Templates</h1>
+            <p class="selector-subtitle">Select a template from the list below</p>
+
+            <div class="selector-card">
+                <select id="templateDropdown" class="template-dropdown">
+                    <option value="">-- Select a Template --</option>
+                    <option value="leadershipEscalation">Leadership Escalation</option>
+                    <option value="lblModification">LBL Modification</option>
+                    <option value="obcxCallback">OBCX Callback Request</option>
+                    <option value="refundRequest">Refund Request</option>
+                </select>
+            </div>
+        </div>
 
 
         <!-- Leadership Escalation Template -->
         <div id="leadershipEscalation" class="template hidden">
-          <button type="button" class="btn-back" onclick="goBackToSelector()">← Back</button>
+            <button type="button" class="btn-back" onclick="goBackToSelector()">← Back</button>
             <h1>Leadership Escalation</h1>
             <form id="issueForm">
                 <fieldset>
@@ -68,11 +68,12 @@
                     <button type="reset" id="resetBtn" class="btn btn-reset">♻ Reset</button>
                 </div>
             </div>
+            <button type="button" class="btn-back" onclick="goBackToSelector()">← Back to Template Selector</button>
         </div>
 
         <!-- LBL Modification Template -->
         <div id="lblModification" class="template hidden">
-          <button type="button" class="btn-back" onclick="goBackToSelector()">← Back</button>
+            <button type="button" class="btn-back" onclick="goBackToSelector()">← Back</button>
             <h1>LBL Modification</h1>
             <form id="lblForm">
                 <h2 style="color:red; text-align:center;">Subject should be: <br>CPROD: xxxxxxxx | LBL Request </h2>
@@ -90,11 +91,12 @@
                     <button type="reset" id="lblResetBtn" class="btn btn-reset">♻ Reset</button>
                 </div>
             </div>
+            <button type="button" class="btn-back" onclick="goBackToSelector()">← Back to Template Selector</button>
         </div>
 
         <!-- OBCX Callback Request Template -->
         <div id="obcxCallback" class="template hidden">
-          <button type="button" class="btn-back" onclick="goBackToSelector()">← Back</button>
+            <button type="button" class="btn-back" onclick="goBackToSelector()">← Back</button>
             <h1>OBCX Callback Request</h1>
             <form id="obcxForm">
                 <label>Customer name: <input type="text" name="customerName"></label>
@@ -114,11 +116,12 @@
                     <button type="reset" id="obcxResetBtn" class="btn btn-reset">♻ Reset</button>
                 </div>
             </div>
+            <button type="button" class="btn-back" onclick="goBackToSelector()">← Back to Template Selector</button>
         </div>
 
         <!-- Refund Request Template -->
         <div id="refundRequest" class="template hidden">
-          <button type="button" class="btn-back" onclick="goBackToSelector()">← Back</button>
+            <button type="button" class="btn-back" onclick="goBackToSelector()">← Back</button>
             <h1>Refund Request</h1>
             <form id="refundForm">
                 <label>URL: <input type="text" name="url"></label>
@@ -136,6 +139,7 @@
                     <button type="reset" id="refundResetBtn" class="btn btn-reset">♻ Reset</button>
                 </div>
             </div>
+            <button type="button" class="btn-back" onclick="goBackToSelector()">← Back to Template Selector</button>
         </div>
 
     </div>
